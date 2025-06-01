@@ -19,6 +19,12 @@ class AccountQuery {
         WHERE account_id=?
     `);
 
+    static getAccountsByAppSecretToken = this.database.prepare(`
+        SELECT *
+        FROM accounts
+        WHERE app_secret_token=?
+    `);
+
     static updateAccount = this.database.prepare(`
         UPDATE accounts
         SET 

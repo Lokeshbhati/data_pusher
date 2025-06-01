@@ -7,6 +7,7 @@ import config from "./config.js";
 import authMiddleware from "./src/middlewares/auth.js";
 import accountRouter from "./src/routes/account.js";
 import destinationRouter from "./src/routes/destination.js";
+import dataPusherRouter from "./src/routes/dataPusher.js";
 
 const app = express();
 const corsOptions = [
@@ -25,6 +26,7 @@ app.use('/server/account',accountRouter);
 app.use('/server/destination',destinationRouter);
 
 app.use(authMiddleware);
+app.use('/server/incoming_data',dataPusherRouter);
 
 const port = config.port;
 app.listen(port, async ()=>{
