@@ -1,0 +1,122 @@
+//GET - http://localhost:8080/server/account
+curl --location 'http://localhost:8080/server/account'
+Response
+{
+    "success": true,
+    "status": 200,
+    "message": "Accounts fetched successfully!!",
+    "data": [
+        {
+            "accountId": 4,
+            "emailId": "lokeshbhati09@gmail.com",
+            "accountName": "My Dummy Account",
+            "appSecretToken": "08ea1747471d92a5cfafbcb2b14fae3a962fa9356250229ee77b0c521783e838",
+            "website": "https://www.linkedin.com/in/lokeshkbhati/"
+        }
+    ]
+}
+
+//GET - http://localhost:8080/server/account/4
+curl --location 'http://localhost:8080/server/account/4'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Account fetched successfully for account id: 4",
+    "data": {
+        "accountId": 4,
+        "emailId": "lokeshbhati09@gmail.com",
+        "accountName": "Test account",
+        "appSecretToken": "08ea1747471d92a5cfafbcb2b14fae3a962fa9356250229ee77b0c521783e838",
+        "website": "https://www.linkedin.com/in/lokeshkbhati/"
+    }
+}
+
+//GET - http://localhost:8080/server/account/4/destinations
+curl --location 'http://localhost:8080/server/account/4/destinations'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Destinations fetched successfully for account id: 4",
+    "data": [
+        {
+            "destinationId": 5,
+            "url": "https://dummyjson.com/posts/",
+            "httpMethod": "get",
+            "headers": [
+                {
+                    "headerId": 21,
+                    "headerKey": "APP_ID",
+                    "headerValue": "1234APPID1234"
+                },
+                {
+                    "headerId": 22,
+                    "headerKey": "APP_SECTET",
+                    "headerValue": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s"
+                },
+                {
+                    "headerId": 23,
+                    "headerKey": "ACTION",
+                    "headerValue": "user.update"
+                },
+                {
+                    "headerId": 24,
+                    "headerKey": "Content-Type",
+                    "headerValue": "application/json"
+                },
+                {
+                    "headerId": 25,
+                    "headerKey": "Accept",
+                    "headerValue": "*"
+                }
+            ]
+        }
+    ]
+}
+
+//DELETE - http://localhost:8080/server/account/5
+curl --location --request DELETE 'http://localhost:8080/server/account/5'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Account deleted successfully for account id: 5"
+}
+
+//POST - http://localhost:8080/server/account
+curl --location 'http://localhost:8080/server/account' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "emailId": "lokeshbhati0500@gmail.com",
+    "accountName": "Test account",
+    "website": "https://www.linkedin.com/in/lokeshkbhati/"
+}'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Account created successfully for account id: 5",
+    "data": {
+        "accountId": 5,
+        "emailId": "lokeshbhati0500@gmail.com",
+        "accountName": "Test account",
+        "appSecretToken": "0544d0d3714151f013929f26994d1c0e1d4a4b6cec3b96f531f5eb033842371b",
+        "website": "https://www.linkedin.com/in/lokeshkbhati/"
+    }
+}
+
+//PUT - http://localhost:8080/server/account/4
+curl --location --request PUT 'http://localhost:8080/server/account/4' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "emailId": "lokeshbhati09@gmail.com",
+    "accountName": "My Dummy Account",
+    "website": "https://www.linkedin.com/in/lokeshkbhati/"
+}'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Account updated successfully for account id: 4"
+}

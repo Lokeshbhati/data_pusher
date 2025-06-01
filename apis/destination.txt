@@ -1,0 +1,163 @@
+//POST - http://localhost:8080/server/destination
+curl --location 'http://localhost:8080/server/destination' \
+--header 'Content-Type: application/json' \
+--data '{
+    "accountId": 5,
+    "url": "https://dummyjson.com/posts",
+    "httpMethod": "get",
+    "headers": {
+        "APP_ID": "1234APPID1234", 
+        "APP_SECTET": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s",
+        "ACTION": "user.update", 
+        "Content-Type": "application/json", 
+        "Accept": "*" 
+    }
+}'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Destination created successfully for destination id: 7",
+    "data": {
+        "destinationId": 7,
+        "accountId": 5,
+        "url": "https://dummyjson.com/posts",
+        "httpMethod": "get",
+        "headers": [
+            {
+                "headerId": 31,
+                "headerKey": "APP_ID",
+                "headerValue": "1234APPID1234"
+            },
+            {
+                "headerId": 32,
+                "headerKey": "APP_SECTET",
+                "headerValue": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s"
+            },
+            {
+                "headerId": 33,
+                "headerKey": "ACTION",
+                "headerValue": "user.update"
+            },
+            {
+                "headerId": 34,
+                "headerKey": "Content-Type",
+                "headerValue": "application/json"
+            },
+            {
+                "headerId": 35,
+                "headerKey": "Accept",
+                "headerValue": "*"
+            }
+        ]
+    }
+}
+
+//PUT - http://localhost:8080/server/destination/5
+curl --location --request PUT 'http://localhost:8080/server/destination/5' \
+--header 'Content-Type: application/json' \
+--data '{
+    "url": "https://dummyjson.com/posts/",
+    "httpMethod": "get"
+}'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Destination updated successfully for destination id: 5"
+}
+
+//DELETE - http://localhost:8080/server/destination/6
+curl --location --request DELETE 'http://localhost:8080/server/destination/6'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Destination deleted successfully for destination id: 6"
+}
+
+//GET - http://localhost:8080/server/destination
+curl --location 'http://localhost:8080/server/destination'
+Response
+{
+    "success": true,
+    "status": 200,
+    "message": "Destinations fetched successfully!!",
+    "data": [
+        {
+            "destinationId": 5,
+            "accountId": 4,
+            "url": "https://dummyjson.com/posts/",
+            "httpMethod": "get",
+            "headers": [
+                {
+                    "headerId": 21,
+                    "headerKey": "APP_ID",
+                    "headerValue": "1234APPID1234"
+                },
+                {
+                    "headerId": 22,
+                    "headerKey": "APP_SECTET",
+                    "headerValue": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s"
+                },
+                {
+                    "headerId": 23,
+                    "headerKey": "ACTION",
+                    "headerValue": "user.update"
+                },
+                {
+                    "headerId": 24,
+                    "headerKey": "Content-Type",
+                    "headerValue": "application/json"
+                },
+                {
+                    "headerId": 25,
+                    "headerKey": "Accept",
+                    "headerValue": "*"
+                }
+            ]
+        }
+    ]
+}
+
+//GET - http://localhost:8080/server/destination/5
+curl --location 'http://localhost:8080/server/destination/5'
+Response
+{
+    "success": true,
+    "status": 200,
+    "msg": "Destination fetched successfully for destination id: 5",
+    "data": {
+        "destinationId": 5,
+        "accountId": 4,
+        "url": "https://dummyjson.com/posts/",
+        "httpMethod": "get",
+        "headers": [
+            {
+                "headerId": 21,
+                "headerKey": "APP_ID",
+                "headerValue": "1234APPID1234"
+            },
+            {
+                "headerId": 22,
+                "headerKey": "APP_SECTET",
+                "headerValue": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s"
+            },
+            {
+                "headerId": 23,
+                "headerKey": "ACTION",
+                "headerValue": "user.update"
+            },
+            {
+                "headerId": 24,
+                "headerKey": "Content-Type",
+                "headerValue": "application/json"
+            },
+            {
+                "headerId": 25,
+                "headerKey": "Accept",
+                "headerValue": "*"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+//POST - http://localhost:8080/server/incoming_data 
+curl --location 'http://localhost:8080/server/incoming_data' \
+--header 'cl-x-token: 08ea1747471d92a5cfafbcb2b14fae3a962fa9356250229ee77b0c521783e838' \
+--header 'Content-Type: application/json' \
+--data '{
+    "message": "Hello"
+}'
+Response
+{
+    "success": true,
+    "status": 200,
+    "message": "Data pushed successfully!!"
+}
