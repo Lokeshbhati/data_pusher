@@ -49,25 +49,6 @@ class AccountController {
         }
     }
 
-    static getAccountDestinations  = async (req,res)=> {
-        console.log(`Controller called: getAccountDestinations`);
-        try {
-            let accountId = req.params.id;
-            console.log(`Account id: ${accountId}`);
-            let recoredDestinations = AccountQuery.getAccountsDestinations.all(accountId);
-            if(recoredDestinations && recoredDestinations.length >0){
-                console.log(`Recorded account: ${JSON.stringify(recoredDestinations)}`);
-                return res.status(httpStatus.OK).json({ success: true, status: httpStatus.OK, msg: `Destinations fetched successfully for account id: ${accountId}`, data: this.prepareResponse(recoredDestinations)});
-            } else {
-                console.log(`Destinations not found for account id: ${accountId}`);
-                return res.status(httpStatus.BAD_REQUEST).json({ success: false, status: httpStatus.BAD_REQUEST, message: `Destinations not found for account id: ${accountId}`, data: []});
-            }
-        } catch(err){
-            console.error(err);
-            return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({ success: false, status: httpStatus.INTERNAL_SERVER_ERROR, error: err.message })
-        }
-    }
-
     static createAccount = async (req,res)=> {
         console.log(`Controller called: createAccount`);
         try {

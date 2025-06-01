@@ -53,6 +53,17 @@ class DestinationQuery {
         FROM destination_headers
         WHERE destination_id = ?;
     `);
+
+    static getDestinationsForAccountId = this.database.prepare(`
+        SELECT 
+            d.destination_id,
+            d.url,
+            d.http_method
+        FROM 
+            destinations d
+        WHERE 
+            d.account_id = ?;
+    `);
 }
 
 export default DestinationQuery;
